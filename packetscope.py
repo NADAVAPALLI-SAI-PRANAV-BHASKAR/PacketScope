@@ -54,12 +54,18 @@ for protocol, count in protocol_count.items():
 print("\nTop Source IPs:")
 
 for ip, count in source_count.most_common(5):
-    print(f"{ip} - {count} packets")
+    print(
+        f"{ip} - {count} "
+        f"{'packet' if count == 1 else 'packets'}"
+    )
 
 print("\nTop Destination IPs:")
 
 for ip, count in destination_count.most_common(5):
-    print(f"{ip} - {count} packets")
+    print(
+        f"{ip} - {count} "
+        f"{'packet' if count == 1 else 'packets'}"
+    )
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 filename = f"report_{timestamp}.txt"
@@ -88,14 +94,16 @@ with open(report_path, "w") as report:
 
     for ip, count in source_count.most_common(5):
         report.write(
-            f"{ip} - {count} packets\n"
+            f"{ip} - {count} "
+            f"{'packet' if count == 1 else 'packets'}\n"
         )
 
     report.write("\nTop Destination IPs:\n")
 
     for ip, count in destination_count.most_common(5):
         report.write(
-            f"{ip} - {count} packets\n"
+            f"{ip} - {count} "
+            f"{'packet' if count == 1 else 'packets'}\n"
         )
 
 print(f"\nReport saved as {filename}")
