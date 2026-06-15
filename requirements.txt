@@ -1,2 +1,2 @@
 # Python 3.10.0 or higher
-# No external dependencies required
+# Flask==3.1.1
