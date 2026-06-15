@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PacketScope</title>
+</head>
+<body>
+    <h1>PacketScope - Network Packet Analyzer</h1>
+
+    <h2>Total Packets: {{ total_packets }}</h2>
+
+    <h3>Protocols</h3>
+    <ul>
+        {% for protocol, count in protocols.items() %}
+        <li>{{ protocol }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Top Source IPs</h3>
+    <ul>
+        {% for ip, count in source_ips %}
+        <li>{{ ip }} - {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Top Destination IPs</h3>
+    <ul>
+        {% for ip, count in destination_ips %}
+        <li>{{ ip }} - {{ count }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
